@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+
+    <h1>This is an product detail page</h1>
+    <div class="shoe-detail">
+        <h2>{{ shoe.name }}</h2>
+        <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
+        <p>Price: ${{ shoe.price }}</p>
+        <p>Description: {{ shoe.description }}</p>
+    </div>
+</div>
+
+
+{% endblock %}
