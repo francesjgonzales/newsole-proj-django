@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-svk576%-o!tcgjqa(2r!$c)nq-(-p%cb&!l(8&1!kl@l=x@pk1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://newsole-proj-django.onrender.com/', 'localhost']
 
 
 # Application definition
