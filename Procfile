@@ -1,0 +1,1 @@
+web: gunicorn newsoleproj.wsgi:application
