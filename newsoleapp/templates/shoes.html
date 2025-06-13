@@ -2,18 +2,30 @@
 {% load static %}
 {% block content %}
 
-<div class="container">
 
-    <h1>This is an product listing page</h1>
-    {% for shoe in shoes %}
-    <div class="shoe-item">
-        <h2>{{ shoe.name }}</h2>
-        <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
-        <p>Price: ${{ shoe.price }}</p>
-        <p>Description: {{ shoe.description }}</p>
-        <a href="{% url 'shoe_detail' shoe.id %}" class="btn btn-primary">View Details</a>
+<div class="container mt-5">
+    <div>
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+        </nav>
     </div>
-    {% endfor %}
+
+    <div>
+        <h1>This is an product listing page</h1>
+        {% for shoe in shoes %}
+        <div class="shoe-item">
+            <h2>{{ shoe.name }}</h2>
+            <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
+            <p>Price: ${{ shoe.price }}</p>
+            <p>Description: {{ shoe.description }}</p>
+            <a href="{% url 'shoe_detail' shoe.id %}" class="btn btn-primary">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+
 </div>
 
 {% endblock %}

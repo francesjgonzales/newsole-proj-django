@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import Shoe
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    shoes = Shoe.objects.all()  # Fetch all Shoe objects from the database
+    latest = Shoe.objects.filter(category='POPULAR')  # Fetch the specific shoe by ID
+    return render(request, 'index.html', {"shoes": latest})
 def about(request):
     return render(request, 'about.html')
 def shoes(request):

@@ -6,6 +6,12 @@ class Shoe(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='shoes/')
+    tags = [ ('POPULAR', 'Popular Brands'),
+             ('NEW', 'New Arrivals'),
+             ('SALE', 'Sale Items'),
+             ('TRENDING', 'Trending'),
+             ('CLASSIC', 'Classic Styles')]
+    category = models.CharField(max_length=20, choices=tags, default='POPULAR')
 
     def __str__(self):
         return self.name
