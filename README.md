@@ -86,6 +86,12 @@ adding and updating models.py, always run this code to process and update the da
    - Update Engine and Name
    - Add User and Password
 
+### Handling static and media files
+
+1. Used Whitenoise to render since this is a simple project.
+
+- For bigger projects, it is advised to use CDN such as Google Cloud Storage, AWS, etc. Configure django's STATIC URL and point it there.
+
 ### File directory
 
 project/
