@@ -92,16 +92,43 @@ adding and updating models.py, always run this code to process and update the da
 
 - For bigger projects, it is advised to use CDN such as Google Cloud Storage, AWS, etc. Configure django's STATIC URL and point it there.
 
-### File directory
+### Choosing a platform to host media files
 
+My requirements are based on compliance and security certifications, private file features, integration with Django and deployment to Render.
+
+## Storage Platform Free Tier and Security/Compliance Comparison
+
+| Feature                     | Cloudinary Free Tier                 | GCS Free Tier                                    |
+| --------------------------- | ------------------------------------ | ------------------------------------------------ |
+| **Free storage/month**      | 25 GB or 25,000 images               | 5 GB (US multi-region only)                      |
+| **Free bandwidth/month**    | 25 GB                                | 1 GB                                             |
+| **Requires credit card**    | No                                   | Yes                                              |
+| **Easiest to get started**  | Yes                                  | Somewhat (needs billing)                         |
+| **Private file support**    | Yes (with config, public by default) | Yes (private by default)                         |
+| **Signed URLs**             | Yes                                  | Yes                                              |
+| **Granular access control** | No (basic API key roles)             | Yes (IAM roles, ACLs, per-object)                |
+| **Audit logs**              | Basic (API access logs)              | Detailed (Cloud Audit Logs)                      |
+| **Compliance**              | SOC 2, ISO 27001, GDPR, CCPA         | SOC 1/2/3, ISO 27001, HIPAA, GDPR, PCI DSS, etc. |
+| **Encryption at rest**      | Yes                                  | Yes (with optional customer keys)                |
+| **Encryption in transit**   | Yes                                  | Yes                                              |
+
+**Notes:**
+
+- **Cloudinary** is easier and more generous for free use, but files are public by default unless you configure private modes.
+- **Google Cloud Storage** offers stronger compliance and security features (private by default, granular access, detailed audit logs), but its free tier is smaller and requires a credit card.
+
+## Project Structure
+
+```
 project/
 ├── myfirstproj/
-│ └── templates
-│ └── migrations
-│ └── static/
-│ │ └── css
-│ │ └── img
-└── myfirstapp/
-│ └── settings.py
-│ └── urls.py
+│   ├── templates/
+│   ├── migrations/
+│   └── static/
+│       ├── css/
+│       └── img/
+├── myfirstapp/
+│   ├── settings.py
+│   └── urls.py
 └── manage.py
+```

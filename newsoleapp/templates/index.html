@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load cloudinary %}
 {% block content %}
 
 <div class="container-fluid hero">
@@ -39,7 +40,6 @@
         {% for shoe in shoes %}
         <div class="col">
             <div class="card mb-4 product-cards">
-
                 <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{ shoe.name }}</h5>

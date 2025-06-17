@@ -13,9 +13,17 @@ import os
 from pathlib import Path
 from datetime import timedelta
 
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+from cloudinary.utils import cloudinary_url
+
+from dotenv import load_dotenv  
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(os.path.join(BASE_DIR, '.env'))  # Load environment variables from .env file
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-svk576%-o!tcgjqa(2r!$c)nq-(-p%cb&!l(8&1!kl@l=x@pk1'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['newsole-proj-django.onrender.com', 'localhost', '127.0.0.1']
 
@@ -56,6 +64,8 @@ INSTALLED_APPS = [
     'rest_framework',  # Django REST Framework
     'rest_framework_simplejwt',  # JWT Authentication
     'corsheaders',  # For handling CORS
+    'cloudinary',
+    'cloudinary_storage',  # For media storage
     'newsoleapp',  # Your application
 ]
 
@@ -138,11 +148,32 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# Cloudinary - Django Integration       
+cloudinary.config( 
+    cloud_name = "dmq3kvtzu", 
+    api_key = "258645892592947", 
+    api_secret = os.getenv("API_SECRET"),
+    secure=True
+)
+
+
+# Optimize delivery by resizing and applying auto-format and auto-quality
+optimize_url, _ = cloudinary_url("shoes", fetch_format="auto", quality="auto")
+print(optimize_url)
+
+# Transform the image: auto-crop to square aspect_ratio
+auto_crop_url, _ = cloudinary_url("shoes", width=500, height=500, crop="auto", gravity="auto")
+print(auto_crop_url)
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
