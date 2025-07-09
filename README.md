@@ -53,7 +53,7 @@ adding and updating models.py, always run this code to process and update the da
 ### Switching sqlite3 to MySQL database
 
 1. Go to settings.py and change default engine in DATABASES to `ENGINE: 'django.db.backends.mysql'`
-2. Go to MySQL Workbench
+2. Open MySQL Workbench and create a new schema
 
 ### Create a MYSQL Database
 
