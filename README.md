@@ -50,6 +50,11 @@ adding and updating models.py, always run this code to process and update the da
    * urls.py - url mapping. Creates a path to access the link from views.py
 3. Template - HTML markup, dynamic components. template for user interface
 
+### Switching sqlite3 to MySQL database
+
+1. Go to settings.py and change default engine in DATABASES to `ENGINE: 'django.db.backends.mysql'`
+2. Go to MySQL Workbench
+
 ### Create a MYSQL Database
 
 1. Install MYSQL
@@ -96,7 +101,7 @@ adding and updating models.py, always run this code to process and update the da
 
 My requirements are based on compliance and security certifications, private file features, integration with Django and deployment to Render.
 
-## Storage Platform Free Tier and Security/Compliance Comparison
+### Storage Platform Free Tier and Security/Compliance Comparison
 
 | Feature                     | Cloudinary Free Tier                 | GCS Free Tier                                    |
 | --------------------------- | ------------------------------------ | ------------------------------------------------ |
