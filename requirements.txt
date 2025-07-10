@@ -5,6 +5,7 @@ cloudinary==1.44.0
 Django==5.2.3
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.7.0
+django-multiselectfield==1.0.1
 djangorestframework==3.16.0
 djangorestframework_simplejwt==5.5.0
 gunicorn==23.0.0

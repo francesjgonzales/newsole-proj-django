@@ -137,3 +137,8 @@ project/
 │   └── urls.py
 └── manage.py
 ```
+
+## References
+
+https://stockx.com/
+https://limitededt.com/
