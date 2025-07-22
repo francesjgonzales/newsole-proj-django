@@ -2,23 +2,41 @@
 {% load static %}
 {% block content %}
 
-<div class="container mt-5">
-    <div>
+<div class="container">
+    <h1>This is a product detail page</h1>
+</div>
+<div class="container my-5">
+    <div class="container" id="breadcrumb-container">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'shoes' %}">Shoes</a></li>
+                <li class="breadcrumb-item active" aria-current="page"> <a href="{% url 'shoes' %}">Shoes</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ shoe.name }}</li>
             </ol>
         </nav>
     </div>
-    <h1>This is an product detail page</h1>
-    <div class="shoe-detail">
-        <h2>{{ shoe.name }}</h2>
-        <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
-        <p>Price: ${{ shoe.price }}</p>
-        <p>Description: {{ shoe.description }}</p>
+
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2">
+            <div class="col">
+                <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
+            </div>
+            <div class="col">
+                <h2>{{ shoe.name }}</h2>
+                <p><small class="badge rounded-pill text-bg-info">{{ shoe.categories|join:" , " }}</small></p>
+                <span class="d-flex flex-row">
+                    <p class="fs-4">$ </p>
+                    <h1> {{ shoe.price }}</h1>
+                </span>
+                <p>Description: {{ shoe.description }}</p>
+                <p>Product Code: {{ shoe.product_code }}</p>
+                <p class="fs-6"><a href="{% url 'shoe_slug' shoe.slug %}" class=" btn">Add to Cart</a></p>
+            </div>
+        </div>
     </div>
+
+
 </div>
 
 

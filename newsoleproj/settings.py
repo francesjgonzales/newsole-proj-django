@@ -33,7 +33,7 @@ load_dotenv()  # Load environment variables from .env file
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['newsole-proj-django.onrender.com', 'localhost', '127.0.0.1']
 

@@ -1,5 +1,10 @@
 # newsole-proj
 
+## Implemented Features
+
+1. Auto Generates a Product Code
+2. Added a Slug that can auto populate if not manually added
+
 ## Created this python project that uses Django framework.
 
 1. install python

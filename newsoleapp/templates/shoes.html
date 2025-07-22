@@ -2,32 +2,42 @@
 {% load static %}
 {% block content %}
 
+<div class="container">
+    <h1>This is a product listing page</h1>
+</div>
 
 <div class="container mt-5">
-    <div>
-        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Shoes</li>
-            </ol>
-        </nav>
-    </div>
-
+    {% include 'breadcrumbs.html' %}
     <div class="container">
-        <h1>This is an product listing page</h1>
         <div class="row">
-            {% for shoe in shoes %}
-            <div class="col">
 
-                <div class="card shoe-item" style="width: 18rem;">
-                    <h2>{{ shoe.name }}</h2>
-                    <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="shoe-image">
-                    <p>Price: ${{ shoe.price }}</p>
-                    <p>Description: {{ shoe.description }}</p>
-                    <a href="{% url 'shoe_detail' shoe.id %}" class="btn btn-primary">View Details</a>
+
+            {% for shoe in shoes %}
+            <div class="col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="card mb-4 product-cards">
+                    <img src="{{ shoe.image.url }}" alt="{{ shoe.name }}" class="img-thumbnail shoe-image">
+                    <div class="card-body">
+                        <p><small class="badge rounded-pill text-bg-info">{{ shoe.categories|join:" , " }}</small></p>
+                        <h5 class="card-title">{{ shoe.name }}</h5>
+                        <h6 class="card-text" style="font-weight: bold;">${{ shoe.price }}</h6>
+                        <p><small class="card-text">Produce Code: {{ shoe.product_code }}</small></p>
+
+
+                        <p class="fs-6"><a href="{% url 'shoe_slug' shoe.slug %}" class=" btn">View
+                                Details</a></p>
+
+                    </div>
                 </div>
             </div>
             {% endfor %}
+
+
+
+
+
+            <div class="card-footer m-3">
+                <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
         </div>
     </div>
 

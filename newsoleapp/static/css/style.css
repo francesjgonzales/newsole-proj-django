@@ -16,8 +16,8 @@
   /* align-items: center; */
   flex-wrap: wrap;
   margin-top: 20px;
-  width: 15vw;
 }
+
 .partner-logos {
   /* width: 100px; */
   height: 20vh;
@@ -32,6 +32,7 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
 .btn:hover {
   background-color: #fbf9f9;
 }
@@ -42,7 +43,13 @@
   cursor: pointer;
   text-decoration: none;
 }
+
 .btn-small:hover {
   color: #1b1b1c;
   text-decoration: underline;
+}
+
+.shoe-image {
+  width: 100%;
+  height: auto;
 }
