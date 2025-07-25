@@ -39,10 +39,11 @@ class Shoe(models.Model):
     def __str__(self):
         return self.name
 
-class Contact(models.Model):
+class ContactForm(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
 
     def __str__(self):
-        return f"Contact from {self.name} ({self.email})"
+        return self.name
+

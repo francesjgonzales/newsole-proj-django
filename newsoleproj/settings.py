@@ -67,7 +67,11 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',  # For media storage
     'newsoleapp',  # Your application
+    "crispy_forms",  # For crispy forms
+    "crispy_bootstrap5",  # For Bootstrap 5 support in crispy forms
 ]
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"    
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -166,6 +170,9 @@ cloudinary.config(
     api_secret = os.getenv("API_SECRET"),
     secure=True
 )
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 # Optimize delivery by resizing and applying auto-format and auto-quality
