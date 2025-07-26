@@ -14,7 +14,6 @@
             <p>Email: <a href="mailto:info@thenewsole.com">info@thenewsole.com</a></p>
         </div>
         <div class="col-md-9">
-            <h2>Contact Form</h2>
             <form method="POST" autocomplete="off">
                 {% csrf_token %}
                 {{ form|crispy }}
